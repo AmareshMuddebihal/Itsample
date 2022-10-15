@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+function formValidation()
+{
+var uid = document.registration.userid;
+var passid = document.registration.passid;
+/* var uname = document.registration.username;
+var uadd = document.registration.address;
+var ucountry = document.registration.country;
+var uzip = document.registration.zip;
+var uemail = document.registration.email;
+var umsex = document.registration.msex;
+var ufsex = document.registration.fsex; 
+
+
+if(userid_validation(uid,5,12))
+{if(passid_validation(passid,7,12))
+{if(allLetter(uname))
+{if(alphanumeric(uadd))
+{ if(countryselect(ucountry))
+{if(allnumeric(uzip))
+{if(ValidateEmail(uemail))
+{if(validsex(umsex,ufsex))
+{
+}} }} }}}}
+return false;
+} 
+
+function userid_validation(uid,mx,my)
+{*/
+var uid_len = uid.value.length;
+if (uid_len == 0 )
+{alert("User cannot be empty");
+uid.focus();
+return false;}
+else if( (uid_len<=5 && uid_len>=12))
+{
+alert("User Id out of bounds");
+uid.focus();
+return false;
+}
+else {
+    alert("Thank you");
+return true;
+}
+}
+
+    </script>
+</head>
+    <body>
+        <h1>Registration Form</h1>
+        Use tab keys to move from one input field to the next.
+        <form name='registration' onSubmit="return formValidation();">
+        <ul>
+        <li><label for="userid">User id:</label></li>
+        <li><input type="text" name="userid" size="12" /></li>
+        
+        <!-- <li><label for="username">Name:</label></li>
+        <li><input type="text" name="username" size="50" /></li>
+        <li><label for="address">Address:</label></li>
+        <li><input type="text" name="address" size="50" /></li>
+        <li><label for="country">Country:</label></li>
+        <li><select name="country">
+        <option selected="" value="Default">(Please select a country)</option>
+        <option value="AF">Australia</option>
+        <option value="AL">Canada</option>
+        <option value="DZ">India</option>
+        <option value="AS">Russia</option>
+        <option value="AD">USA</option>
+        </select></li>
+        <li><label for="zip">ZIP Code:</label></li>
+        <li><input type="text" name="zip" /></li>
+        <li><label for="email">Email:</label></li>
+        <li><input type="text" name="email" size="50" /></li>
+        <li><label id="gender">Sex:</label></li>
+        <li><input type="radio" name="msex" value="Male" /><span>Male</span></li>
+        <li><input type="radio" name="fsex" value="Female" /><span>Female</span></li>
+        <li><label>Language:</label></li>
+        <li><input type="checkbox" name="en" value="en" checked /><span>Java</span></li>
+        <li><input type="checkbox" name="nonen" value="noen" /><span>Dotnet</span></li>
+        <li><label for="desc">About:</label></li>
+        <li><textarea name="desc" id="desc"></textarea></li> -->
+        <li><input type="submit" name="submit" value="Submit" /></li>
+        </ul>
+        </form>
+        
+</body>
+</html>

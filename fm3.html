@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{font-family:'Times New Roman', Times, serif;
+        font-size:40px; }
+    </style>
+    
+    <script type="text/javascript">
+        function mes()
+        {			var alertsay="";
+                    var name=document.form1.name.value;
+                    var pass=document.form1.pass.value;
+                    var gender=document.form1.gender;
+                    var age=document.form1.age;
+                    var email=document.form1.email.value;
+                    var check2=document.form1.check2;
+                    var text1=document.form1.text1.value;
+
+        if(name==""|| name.length<6)
+                    alertsay="You must enter a name with min 6 alphabets\n";
+                                
+         if(pass.length<6)
+                   
+                    alertsay=alertsay+"Enter atleast 6 characters in password field\n";
+                                 
+        if((gender.selectedIndex<0)||(gender.selectedIndex==0))
+                    {	alertsay+="Invalid selection in Gender\n";
+                    }
+                    else{	var radioselected=false;
+                        for(i=0;i<gender.length;i++)
+                        {
+                            if(gender[i].checked)
+                                radioselected=true;
+                        }
+                        if(!radioselected)
+                            alertsay+="Select your gender\n";
+                    } 
+        var x=0;
+        for(i=0;i<gender.length;i++)
+        { if(gender[i].checked) 
+            x=x+1;
+        }
+        if(x==0)
+             alertsay+="Select Gender\n";
+
+        if(age.selectedIndex<=0)
+                    alertsay+="Invalid age selection\n";
+        
+        // var letters = /^[0-9]+$/;
+        // var letters = /^[A-Za-z]+$/; 
+        // var letters = /^[0-9A-Za-z]+$/;
+
+        var mailformat=/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{1,4})+$/;
+        if(!(email.match(mailformat)))
+                        alertsay+="Please enter your valid email address\n";
+                    
+        var checkselect=false;
+        for(i=0;i<check2.length;i++)
+        {
+                if(check2[i].checked)
+                    checkselect=true;
+        }
+        if(!checkselect)
+                    alertsay+="Please select the places you likes the most\n";
+
+        if(text1.length<30)
+                    alertsay=alertsay+"Enter atleast 30 characters in comment\n";
+                  
+        if(alertsay.length>0)
+                alert(alertsay);
+        else
+                alert("Thank You!!");
+                    
+        }
+        </script>
+</head>
+<body bgcolor="green">
+                <center><h1>Personal details</h1><center><br>
+    <form name="form1" action="#">
+           
+        <table border="0">
+            
+            <tr>	<th>Name</th>  <td><input type="text" name="name"></td> </tr>
+            
+            <tr>   <th>Password</th>  <td><input type="password" name="pass"></td> </tr>
+            
+            <tr>  <th>Gender</th> <td> <input type="radio" name="gender" value="Male">Male        
+                <input type="radio" name="gender" value="Female">Female     </td> </tr>
+            
+            <tr> <th>Age</th> <td> <select name="age">
+                                <option>0</option>
+                                <option>19</option>
+                                <option>20</option>
+                                <option>21</option>
+                                <option>22</option>  </select> </td> </tr>
+            <tr><th>Email ID</th> <td><input type="text" name="email"></td></tr>
+                       
+            <tr><th>Which place do you like the most</th><td>
+                    <input type="checkbox" name="check2" value="Chennai">Chennai
+                    <input type="checkbox" name="check2" value="Mumbai">Mumbai
+                    <input type="checkbox" name="check2" value="Bengaluru">Bengaluru
+                    <input type="checkbox" name="check2"	 value="Kolkata">Kolkata</td></tr>
+                       
+            <tr><td colspan="2"> <textarea name="text1" rows="10" cols="60"></textarea></td></tr>
+
+            <tr><td colspan="2"><input type="button" value="submit" align="center" onclick=mes();></td> </tr>
+        </table>
+    </form>        
+</body>
+</html>
